@@ -1,7 +1,8 @@
 ## Small cleaning script for UNIT Factory.
 
 Cache cleaning sometimes make some troubles for students. <br>
-So, you can add this script for autostartup when you open Terminal.
+If you forgot to delete cache files – get ready for the settings reset. <br>
+So, you can help yourself and add this script for autostartup when you open Terminal.
 
 ### Important
 Tested and working properly on `iTerm2` with `zsh`.
