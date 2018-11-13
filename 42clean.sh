@@ -1,18 +1,16 @@
 ###################################
 # Author: vliubko@student.unit.ua #
 ###################################
+echo $'\e[96m== 42clean.sh ==\n'
+BEFORE="$(df -h | grep "$(whoami)" | awk {'print $4'})"
+rm -rf $HOME/Library/*42_cache*;
+rm -rf $HOME/.*42_cache*;
+rm -rf $HOME/.*zcompdump*;
+/bin/echo -n $'\e[0mFree space for '
+/bin/echo $'\e[40;38;5;82m' "$(whoami)" $'\e[0m'
+/bin/echo $'(from 5GB)\n'
+/bin/echo $'\e[38;5;196mBefore:' $BEFORE
+AFTER="$(df -h | grep "$(whoami)" | awk {'print $4'})"
+/bin/echo $'\e[38;5;46mAfter:' $AFTER
 
-/bin/echo -n "Before Library clean: $(du -sh ~/Library 2>/dev/null | awk {'print $1'})"
-/bin/echo -n $'\t\e[38;5;196m'
-/bin/echo "$(df -h | grep "$(whoami)" | awk {'print $5'})"
-/bin/echo -n $'\e[0m'
-rm -rf ~/Library/*.42_cache*
-/bin/echo -n " After Library clean: $(du -sh ~/Library 2>/dev/null | awk {'print $1'})"
-/bin/echo -n $'\t\e[38;5;46m'
-/bin/echo "$(df -h | grep "$(whoami)" | awk {'print $5'})"
-
-/bin/echo -n $'\n\e[38;5;226mFree space for: '
-/bin/echo "$(whoami)"
-/bin/echo -n "$(df -h | grep "$(whoami)" | awk {'print $4'})"
-/bin/echo $' from 5GB' 
-/bin/echo $'\n\t\e[38;5;226mGarbage removed!\e[0m'
+/bin/echo $'\n\e[38;5;226m== Garbage removed! ==\e[0m'
